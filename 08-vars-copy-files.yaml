@@ -1,0 +1,33 @@
+- name: move files from source to destination
+  hosts: web
+  # gather_facts: no
+  
+  vars: 
+    name: file.ext
+    foo:
+      foo_root_path: faaa
+      foo_dest_path: baa
+    bar:
+      bar_root_path: xyz
+      bar_dest_path: wxy
+    baz:
+      baz_root_path: abc
+      baz_dest_path: def
+
+  vars_prompt:
+    - name: type
+      prompt: "What variable type do you want to use?"
+      private: no  
+
+  pre_tasks:
+    - assert:
+        that: lookup('vars', type, default='') | length
+      
+  tasks:
+    - name: "Move {{ type }} data from source to destination"
+      copy:
+        src: "{{ lookup('vars', type)[type ~ '_root_path'] }}/{{ name }}"
+        dest: "{{ lookup('vars', type)[type ~ '_dest_path'] }}"
+        owner: "{{ type }}"
+        group: "{{ type }}"
+        mode: "0644"
