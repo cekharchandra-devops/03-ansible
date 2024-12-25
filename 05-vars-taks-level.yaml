@@ -1,0 +1,17 @@
+- name: reference task level vars
+  hosts: web
+  become: yes
+  vars:
+    course: DEVOPS
+    duration: 120HRS
+    trainer: siva
+  tasks:
+    - name: print play level reference variables
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{ course }}, duration: {{ duration }} and trainer: {{ trainer }}"
+    - name: print task level reference variables
+      vars:
+        course: DEVOPS with AWS
+        topic: ansible
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{ course }}, duration is {{ duration }} and trainer: {{ trainer }}, practicing {{ topic }}"

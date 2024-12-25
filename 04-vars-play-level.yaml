@@ -9,3 +9,5 @@
     - name: print vars
       ansible.builtin.debug:
         msg: "Hi, I am learning {{ COURSE }}, DURATION is {{ DURATION }} and trainer is {{ TRAINER }}"
+
+# play level vars can be used in all the tasks defined in that play
