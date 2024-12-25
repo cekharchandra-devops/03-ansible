@@ -18,4 +18,4 @@
   tasks:
     - name: print prompted values 
       ansible.builtin.debug:
-        msg: "Hi, I am learning {{ course }}, trainer is {{ trainer }} and duration is {{ duration }}"
+        msg: "Hi, I am learning {{ course }}, trainer is {{ trainer }} and duration is {{ duration }}, password {{ my_password2 }}"
