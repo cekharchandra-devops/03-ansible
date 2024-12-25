@@ -55,4 +55,12 @@ ansible -i 172.31.83.28, all -e ansible_user=ec2-user -e ansible_password=DevOps
 
 executing the above adhoc commands one after the other is error prone if there is network issues.
 
-* configure these commands as modules and execute them against ansible nodes is nothing but playbooks
+* configure these commands as list of tasks and execute them against ansible nodes is nothing but playbooks
+
+* inventory.ini file contains ansible nodes information. we can group the nodes and configure all the nodes at a time.
+
+* nginx yaml is playbook for configuring the tasks to install nginx and run the service.
+
+```
+ ansible-playbook -i inventory.ini nginx.yaml -e ansible_user=ec2-user -e ansible_password=DevOps321
+ ```
