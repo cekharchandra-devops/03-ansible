@@ -1,0 +1,9 @@
+- name: fetch variables from external file
+  become: yes
+  hosts: web
+  vars_files:
+    - variables.yaml
+  tasks:
+    - name: print variables loaded from external file
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{ course }}, duration is {{ duration }} and trainer is {{ trainer }}"
