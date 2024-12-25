@@ -1,0 +1,11 @@
+- name: define vars
+  hosts: web
+  become: yes
+  vars:
+    COURSE: DEVOPS
+    DURATION: 120HRS
+    TRAINER: SIVA
+  tasks:
+    - name: print vars
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{ CCOURSE }}, DURATION is {{ DURATION }} and trainer is {{ TRAINER }}"
