@@ -1,14 +1,14 @@
 - name: fetch variables from external file
   become: yes
   hosts: web
-  vars_prompt:
-    - name: course
-      prompt: please enter the course name
-      private: false
-    - name: trainer
-      prompt: please enter the trainer name
-    - name: duration
-      prompt: please enter course duration
+  # vars_prompt:
+  #   - name: course
+  #     prompt: please enter the course name
+  #     private: false
+  #   - name: trainer
+  #     prompt: please enter the trainer name
+  #   - name: duration
+  #     prompt: please enter course duration
   vars:
     course: DEVOPS play level
     duration: 120HRS play level
@@ -28,3 +28,5 @@
 #  cli has highest preference
 #  task level
 # vars_files:
+# vars_prompt:
+# 
