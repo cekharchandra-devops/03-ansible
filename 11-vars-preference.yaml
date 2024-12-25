@@ -17,9 +17,13 @@
     - variables.yaml
   tasks:
     - name: print variables loaded from external file
-      vars:
-        course: DEVOPS task level
-        duration: 120HRS task level
-        trainer: SIVA task level
+      # vars:
+      #   course: DEVOPS task level
+      #   duration: 120HRS task level
+      #   trainer: SIVA task level
       ansible.builtin.debug:
         msg: "Hi, I am learning {{ course }}, duration is {{ duration }} and trainer is {{ trainer }}"
+
+
+#  cli has highest preference
+#  task level
