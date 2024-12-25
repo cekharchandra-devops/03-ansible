@@ -13,8 +13,8 @@
     course: DEVOPS play level
     duration: 120HRS play level
     trainer: SIVA play level
-  vars_files:
-    - variables.yaml
+  # vars_files:
+  #   - variables.yaml
   tasks:
     - name: print variables loaded from external file
       # vars:
@@ -27,3 +27,4 @@
 
 #  cli has highest preference
 #  task level
+# vars_files:
