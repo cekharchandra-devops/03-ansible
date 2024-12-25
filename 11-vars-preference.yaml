@@ -9,10 +9,10 @@
   #     prompt: please enter the trainer name
   #   - name: duration
   #     prompt: please enter course duration
-  vars:
-    course: DEVOPS play level
-    duration: 120HRS play level
-    trainer: SIVA play level
+  # vars:
+  #   course: DEVOPS play level
+  #   duration: 120HRS play level
+  #   trainer: SIVA play level
   # vars_files:
   #   - variables.yaml
   tasks:
@@ -26,7 +26,7 @@
 
 
 #  cli has highest preference
-#  task level
+#  task level vars
 # vars_files:
 # vars_prompt:
-# 
+# play level vars
