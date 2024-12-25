@@ -1,0 +1,25 @@
+- name: fetch variables from external file
+  become: yes
+  hosts: web
+  vars_prompt:
+    - name: course
+      prompt: please enter the course name
+      private: false
+    - name: trainer
+      prompt: please enter the trainer name
+    - name: duration
+      prompt: please enter course duration
+  vars:
+    course: DEVOPS play level
+    duration: 120HRS play level
+    trainer: SIVA play level
+  vars_files:
+    - variables.yaml
+  tasks:
+    - name: print variables loaded from external file
+      vars:
+      course: DEVOPS task level
+      duration: 120HRS task level
+      trainer: SIVA task level
+      ansible.builtin.debug:
+        msg: "Hi, I am learning {{ course }}, duration is {{ duration }} and trainer is {{ trainer }}"

@@ -5,3 +5,6 @@
     - name: print variables from inventory file
       ansible.builtin.debug:
         msg: "Hi, i am learning {{ course }}, duration is {{ duration }} and trainer is {{ trainer }}"
+
+# we can pass the variable values directly from cli as shown below.
+# ansible-playbook -i inventory.ini 10-vars-cli.yaml -e ansible_user=ec2-user -e ansible_password=DevOps321 -e "duration=120hrs course='devops with aws' trainer=siva"
