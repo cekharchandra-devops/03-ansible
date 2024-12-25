@@ -4,10 +4,17 @@
   vars_prompt:
     - name: course
       prompt: please enter the course name
+      private: false
     - name: trainer
       prompt: please enter the trainer name
     - name: duration
       prompt: please enter course duration
+    - name: my_password2
+      prompt: Enter password2
+      private: true
+      encrypt: sha512_crypt
+      confirm: true
+      salt_size: 7
   tasks:
     - name: print prompted values 
       ansible.builtin.debug:
