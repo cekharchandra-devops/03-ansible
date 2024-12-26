@@ -1,17 +1,17 @@
 - hosts: all
   tasks:
-    - name: Show all hostvars
+    # - name: Show all hostvars
+    #   debug:
+    #     msg: "{{ hostvars[inventory_hostname] }}"
+
+    - name: List all hosts in the 'web' group
       debug:
-        msg: "{{ hostvars[inventory_hostname] }}"
+        msg: "{{ groups['server'] }}"
 
-    # - name: List all hosts in the 'web' group
-    #   debug:
-    #     msg: "{{ groups['server'] }}"
+    - name: Show all groups the current host belongs to
+      debug:
+        msg: "{{ group_names }}"
 
-    # - name: Show all groups the current host belongs to
-    #   debug:
-    #     msg: "{{ group_names }}"
-
-    # - name: Show the inventory name of the current host
-    #   debug:
-    #     msg: "{{ inventory_hostname }}"
+    - name: Show the inventory name of the current host
+      debug:
+        msg: "{{ inventory_hostname }}"
