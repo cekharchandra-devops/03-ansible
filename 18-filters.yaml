@@ -9,6 +9,6 @@
     - name: convert string of comma-separated values to list with split filter
       ansible.builtin.debug:
         msg: " {{ item }} "
-      loop: "{{ names }}"
+      loop: "{{ names | split(',') }}"
       vars:
         names: sekhar,chandra,reddy
