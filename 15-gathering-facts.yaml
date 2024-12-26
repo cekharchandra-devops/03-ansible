@@ -1,0 +1,7 @@
+- name: print facts
+  hosts: web
+  become: yes
+  tasks:
+    - name: print facts information
+      ansible.buitlin.debug:
+        msg: "{{ ansible_facts }}"
