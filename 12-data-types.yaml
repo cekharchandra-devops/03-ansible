@@ -19,4 +19,4 @@
     tasks:  
       - name: print vars information and its type
         ansible.builtin.debug:
-          msg: " {{ course | type_debug }}"
+          msg: "{{ course | type_debug }}"
