@@ -1,5 +1,5 @@
 - name: datatypes
-  hosts: 127.0.0.1
+  hosts: local
   connection: local
   become: yes
   vars:
@@ -19,4 +19,4 @@
     tasks:  
       - name: print vars information and its type
         ansible.builtin.debug:
-          msg: "{{ course | type_debug }}"
+          msg: "course type {{ course | type_debug }} : course is {{ course }}"
