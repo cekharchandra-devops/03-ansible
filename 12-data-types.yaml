@@ -1,0 +1,22 @@
+- name: datatypes
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    course: devops with aws
+    duration: 120
+    topics:
+      - linux
+      - ansible
+      - terraform
+      - aws
+      - k8s
+    live: yes
+    tools:
+      ci: jenkins
+      cm: ansible
+      cloud: aws
+    tasks:  
+      - name: print vars information and its type
+        ansible.builtin.debug:
+          msg: " {{ course | type_debug }}"

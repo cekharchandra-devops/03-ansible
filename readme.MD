@@ -63,4 +63,10 @@ executing the above adhoc commands one after the other is error prone if there i
 
 ```
  ansible-playbook -i inventory.ini nginx.yaml -e ansible_user=ec2-user -e ansible_password=DevOps321
- ```
+```
+* ansible will use below command internally to filter the hosts
+
+```
+ ansible -i inventory.ini web --list-hosts
+```
+
