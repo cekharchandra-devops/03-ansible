@@ -3,7 +3,7 @@
   connection: local
   become: yes
   vars:
-    course: devops with aws
+    course: "devops with aws"
     duration: 120
     topics:
       - linux
@@ -19,4 +19,4 @@
   tasks:  
     - name: print vars information and its type
       ansible.builtin.debug:
-        msg: "course type {{ course | type_debug }} : course is {{ course }}"
+        msg: "course type {{ course | type_debug }} : course is {{ course }} : {{ topics | type_debug }} : {{ live | type_debug }}"
