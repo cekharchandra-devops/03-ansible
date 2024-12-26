@@ -16,7 +16,7 @@
       ci: jenkins
       cm: ansible
       cloud: aws
-    tasks:  
-      - name: print vars information and its type
-        ansible.builtin.debug:
-          msg: "course type {{ course | type_debug }} : course is {{ course }}"
+  tasks:  
+    - name: print vars information and its type
+      ansible.builtin.debug:
+        msg: "course type {{ course | type_debug }} : course is {{ course }}"
