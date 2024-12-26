@@ -1,0 +1,12 @@
+- name: conditional check
+  hosts: local
+  connection: local
+  become: yes
+  vars_prompt:
+    - name: num
+      prompt: enter the number
+  tasks:
+    - name: check the given number is lessthan 10 or not
+      ansible.builtin.debug:
+        msg: " Given number {{ num }} is lessthan 10"
+      when: num < 10
