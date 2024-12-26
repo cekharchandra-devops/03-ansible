@@ -8,6 +8,11 @@
     - name: check user exist or not
       ansible.builtin.command: id expense
       register: user_status
+      ignore_errors: true
     - name: print status of user exist or not
       ansible.builtin.debug:
         msg: "{{ user_status }}"
+    
+    # - name: create user if not exist
+    #   ansible.builtin.command: useradd expense
+    #   when: user_status | int != 0
