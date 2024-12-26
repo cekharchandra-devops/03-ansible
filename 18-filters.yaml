@@ -1,0 +1,14 @@
+- name: default value to variable
+  hosts: web
+  become: yes
+  tasks:
+    - name: pass default value to variable
+      ansible.builtin.debug:
+        msg: " {{ course | default('ansible') }}"
+
+    - name: convert string of comma-separated values to list with split filter
+      ansible.builtin.debug:
+        msg: " {{ item }} "
+      loop: "{{ names }}"
+      vars:
+        names: sekhar,chandra,reddy

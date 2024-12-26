@@ -15,3 +15,13 @@
     - name: Show the inventory name of the current host
       debug:
         msg: "{{ inventory_hostname }}"
+
+    - name: Show all the hosts in the inventory
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ query('inventory_hostnames', 'all') }}"   # return list 
+
+    - name: Show all the hosts matching the pattern, ie all but the group www
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ lookup('inventory_hostnames', 'all:!www', wantlist=True) }}" #  lookup filter returns a string of comma-separated values by default.
