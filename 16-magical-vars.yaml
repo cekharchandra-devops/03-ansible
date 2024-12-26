@@ -4,7 +4,7 @@
     #   debug:
     #     msg: "{{ hostvars[inventory_hostname] }}"
 
-    - name: List all hosts in the 'web' group
+    - name: List all hosts in the 'server' group
       debug:
         msg: "{{ groups['server'] }}"
 
