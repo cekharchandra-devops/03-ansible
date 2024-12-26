@@ -10,4 +10,4 @@
       register: user_status
     - name: print status of user exist or not
       ansible.builtin.debug:
-        msg: {{ user_status }}
+        msg: "{{ user_status }}"
