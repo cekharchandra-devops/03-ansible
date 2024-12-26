@@ -13,6 +13,6 @@
       ansible.builtin.debug:
         msg: "{{ user_status }}"
     
-    # - name: create user if not exist
-    #   ansible.builtin.command: useradd expense
-    #   when: user_status | int != 0
+    - name: create user if not exist
+      ansible.builtin.command: useradd expense
+      when: user_status.rc | int != 0
