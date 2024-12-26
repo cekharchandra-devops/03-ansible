@@ -25,8 +25,9 @@
         msg: "Hi, I am learning {{ course }}, duration is {{ duration }} and trainer is {{ trainer }}"
 
 
-#  cli has highest preference
+#  cli args has highest preference
 #  task level vars
 # vars_files:
 # vars_prompt:
 # play level vars
+# inventory file
