@@ -2,28 +2,21 @@
   hosts: web
   become: yes
   vars:
-    users:
-      - user1
-      - user2
     packages:
       - {name: mysql, state: present}
       - {name: nginx, state: absent}
       - {name: httpd, state: present}
   tasks:
-    # - name: print names
-    #   ansible.builtin.debug:
-    #     msg: "{{ item }}"
-    #   loop:
-    #     - sekhar
-    #     - chandra
-    #     - reddy
-    - name: install packages
+    - name: print names
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop:
+        - sekhar
+        - chandra
+        - reddy
+    - name: install packages list of hashes 
       ansible.builtin.package:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
       loop: "{{ packages }}"
-
-    - name: add serveral users
-      ansible.builtin.user:
-        name: " {{ users }}" # without loop
-        state: present
+      when: item.state == "present"
