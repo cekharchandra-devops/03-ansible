@@ -1,5 +1,5 @@
 - name: datatypes
-  hosts: localhost
+  hosts: local
   connection: local
   become: yes
   vars:
