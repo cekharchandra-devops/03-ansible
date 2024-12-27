@@ -16,9 +16,9 @@
     - name: transform dictionary to list
       ansible.builtin.debug:
         msg: "{{ item.key }} - {{ item.value }}"
-      loop: "{{ tags | dict2items }}"
+      loop: "{{ tags_names | dict2items }}"
       vars:
-        tags:
+        tags_names:
           Application: payment
           Environment: dev
           
