@@ -25,9 +25,9 @@
     - name: transform list to dic
       ansible.builtin.debug:
         msg: "{{ item.key }} - {{ item.value }}"
-      loop: "{{ tags | items2dict }}"
+      loop: "{{ tags_list | items2dict }}"
       vars:
-        tags:   # Not all lists use key to designate keys and value to designate values.
+        tags_list:   # Not all lists use key to designate keys and value to designate values.
           - key: Application
             value: payment
           - key: Environment
