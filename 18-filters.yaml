@@ -12,3 +12,31 @@
       loop: "{{ names | split(',') }}"
       vars:
         names: sekhar,chandra,reddy
+
+    - name: transform dictionary to list
+      ansible.builtin.debug:
+        msg: "{{ item.key }} - {{ item.value }}"
+      loop: " {{ tags | dict2items }}"
+      vars:
+        tags:
+          Application: payment
+          Environment: dev
+    - name: transform list to dic
+      ansible.builtin.debug:
+        msg: "{{ item.key }} - {{ item.value }}"
+      loop: " {{ tags | items2dict }}"
+      vars:
+        tags:   # Not all lists use key to designate keys and value to designate values.
+          - key: Application
+            value: payment
+          - key: Environment
+            value: dev
+    
+    - name: transform list to dict with custom key values
+      ansible.builtin.debug:
+        msg: " {{  }} "
+      loop: " {{ tags | dict2items(key_name='tier', value_name='artifact_path') }}"
+      vars:
+        file_path:
+          frontend: https://frontend/frontend.zip
+          backend: https://backend/backend.zip
