@@ -32,6 +32,7 @@
             value: payment
           - key: Environment
             value: dev
+      ignore_errors: true
     
     - name: transform list to dict with custom key values
       ansible.builtin.debug:
