@@ -32,6 +32,7 @@
             value: payment
           - key: Environment
             value: dev
+        consolidated: "{{ tags_list | items2dict }}"
       ignore_errors: true
     
     - name: transform list to dict with custom key values
