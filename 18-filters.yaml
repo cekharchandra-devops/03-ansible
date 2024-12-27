@@ -15,7 +15,7 @@
 
     - name: transform dictionary to list
       ansible.builtin.debug:
-        msg: "{{ item.Application }} - {{ item.Environment }}"
+        msg: "{{ item.key }} - {{ item.value }}"
       loop: "{{ tags_names | dict2items }}"
       vars:
         tags_names:
