@@ -36,7 +36,7 @@
     
     - name: transform list to dict with custom key values
       ansible.builtin.debug:
-        msg: " {{ item.key }} - {{ item.value }} "
+        msg: " {{ item.tier }} - {{ item.artifact_path }} "
       loop: "{{ file_path | dict2items(key_name='tier', value_name='artifact_path') }}"
       vars:
         file_path:
