@@ -19,7 +19,35 @@
       loop: "{{ instances }}"
       register: ec2_instances
 
-    - name: print instance information
-      ansible.builtin.debug:
-        msg: "{{ ec2_instances }}"
-  
+    # - name: print instance information
+    #   ansible.builtin.debug:
+    #     msg: "{{ ec2_instances }}"
+
+    - name: create r53 records 
+      vars:
+        zone_name: "devsecmlops.online"
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone_name }}"
+        record: "{{ item.item }}.{{ zone_name }}"
+        type: A
+        ttl: 1
+        value: "{{ item.private_ip_address }}"
+        wait: true
+        overwrite: true
+      loop: "{{ ec2_instances.result }}"
+
+    - name: create r53 record for frontend with public ip
+      vars:
+        zone_name: "devsecmlops.online"
+      amazon.aws.route53:
+        state: present
+        zone: "{{ zone_name }}"
+        record: "{{ zone_name }}"
+        type: A
+        ttl: 1
+        value: "{{ item.public_ip_address }}"
+        wait: true
+        overwrite: true
+      loop: "{{ ec2_instances.result }}"
+    
