@@ -35,7 +35,7 @@
         value: "{{ item.private_ip_address }}"
         wait: true
         overwrite: true
-      loop: "{{ ec2_instances.result }}"
+      loop: "{{ ec2_instances.results }}"
 
     - name: create r53 record for frontend with public ip
       vars:
@@ -49,5 +49,5 @@
         value: "{{ item.public_ip_address }}"
         wait: true
         overwrite: true
-      loop: "{{ ec2_instances.result }}"
+      loop: "{{ ec2_instances.results }}"
     
