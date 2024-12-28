@@ -32,7 +32,7 @@
         record: "{{ item.item }}.{{ zone_name }}"
         type: A
         ttl: 1
-        value: "{{ item.private_ip_address }}"
+        value: "{{ item.instances.private_ip_address }}"
         wait: true
         overwrite: true
       loop: "{{ ec2_instances.results }}"
@@ -46,8 +46,9 @@
         record: "{{ zone_name }}"
         type: A
         ttl: 1
-        value: "{{ item.public_ip_address }}"
+        value: "{{ item.instances.public_ip_address }}"
         wait: true
         overwrite: true
       loop: "{{ ec2_instances.results }}"
+      when: item.item == "frontend"
     
