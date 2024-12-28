@@ -1,5 +1,5 @@
 - name: create ec2 instances for expense project
-  host: local
+  hosts: local
   connection: local
   vars:
     vpc_subnet_id: "subnet-05fee104efdf4432a"
